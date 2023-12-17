@@ -15,8 +15,6 @@ The project involves scenarios for creating, updating, retrieving, and deleting 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Built With](#built-with)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Structure 🏗️
 
