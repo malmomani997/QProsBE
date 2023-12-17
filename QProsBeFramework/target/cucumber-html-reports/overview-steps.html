@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script>
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<title>Cucumber Reports (no 1) - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+        <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+        <th>Number</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>cucumber-jvm-example</td>
+        <td>1</td>
+      <td>17 Dec 2023, 11:37</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+  </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+      <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+  </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td class="location">stepDefinitions.CreateUserScenario.the_user_add_his_information_with(java.lang.Integer,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="60513750">0.060</td>
+              <td class="duration" data-value="60513750">0.233</td>
+              <td class="duration" data-value="242055000">0.242</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.CreateUserScenario.the_user_submits_the_information()</td>
+              <td>4</td>
+              <td class="duration" data-value="744748000">0.744</td>
+              <td class="duration" data-value="744748000">0.766</td>
+              <td class="duration" data-value="2978992000">2.978</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.CreateUserScenario.verify_that_the_user_is_created_with_the_correct_information(int,java.lang.String,java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="101055250">0.101</td>
+              <td class="duration" data-value="101055250">0.336</td>
+              <td class="duration" data-value="404221000">0.404</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.DeleteUserScenario.the_user_add_the_username_of_the_account_that_want_be_deleted()</td>
+              <td>4</td>
+              <td class="duration" data-value="93649500">0.093</td>
+              <td class="duration" data-value="93649500">0.372</td>
+              <td class="duration" data-value="374598000">0.374</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.DeleteUserScenario.the_user_submits_the_searched_information_about_the_account_he_wants_to_delete(java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="934738250">0.934</td>
+              <td class="duration" data-value="934738250">1.525</td>
+              <td class="duration" data-value="3738953000">3.738</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.DeleteUserScenario.verify_the_api_status_code_and_the_user_is_deleted_successfully()</td>
+              <td>4</td>
+              <td class="duration" data-value="4441000">0.004</td>
+              <td class="duration" data-value="4441000">0.015</td>
+              <td class="duration" data-value="17764000">0.017</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.GetUserScenario.the_user_add_to_look_for_it_and_get_it()</td>
+              <td>4</td>
+              <td class="duration" data-value="694250">0.000</td>
+              <td class="duration" data-value="694250">0.000</td>
+              <td class="duration" data-value="2777000">0.002</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.GetUserScenario.the_user_submits_the_searched_information(java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="811182000">0.811</td>
+              <td class="duration" data-value="811182000">1.013</td>
+              <td class="duration" data-value="3244728000">3.244</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.GetUserScenario.verify_that_the_returned_information_matches_the_user_you_searched_for(int,java.lang.String,java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="20118500">0.020</td>
+              <td class="duration" data-value="20118500">0.020</td>
+              <td class="duration" data-value="80474000">0.080</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.UpdateUserScenario.the_user_add_his_information_with(java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="2535000">0.002</td>
+              <td class="duration" data-value="2535000">0.003</td>
+              <td class="duration" data-value="10140000">0.010</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.UpdateUserScenario.the_user_submits_the_searched_information_thats_needed_to_be_updated(java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="789613750">0.789</td>
+              <td class="duration" data-value="789613750">0.910</td>
+              <td class="duration" data-value="3158455000">3.158</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepDefinitions.UpdateUserScenario.verify_that_the_returned_information_matches_the_user_you_searched_for(java.lang.String,java.lang.String,java.lang.String)</td>
+              <td>4</td>
+              <td class="duration" data-value="18122000">0.018</td>
+              <td class="duration" data-value="18122000">0.018</td>
+              <td class="duration" data-value="72488000">0.072</td>
+              <td class="passed">100.00%</td>
+            </tr>
+        </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>12</td>
+            <td>48</td>
+            <td class="duration">0.298</td>
+            <td class="duration">3.738</td>
+            <td class="duration">14.325</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>QProsBETask</groupId>
+  <artifactId>QProsBE</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>QProsBE</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+    <maven.cucumber.reporting.plugin.version>5.7.7</maven.cucumber.reporting.plugin.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <!-- Surefire Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.plugin.version}</version>
+        <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Cucumber Reporting Plugin -->
+      <plugin>
+        <groupId>net.masterthought</groupId>
+        <artifactId>maven-cucumber-reporting</artifactId>
+        <version>${maven.cucumber.reporting.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>execution</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <projectName>cucumber-jvm-example</projectName>
+          <skip>false</skip>
+          <outputDirectory>${project.build.directory}</outputDirectory>
+          <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
+          <jsonFiles>
+            <param>**/*.json</param>
+          </jsonFiles>
+          <classificationDirectory>${project.build.directory}/jsonReports</classificationDirectory>
+          <classificationFiles>
+            <param>sample.properties</param>
+            <param>other.properties</param>
+          </classificationFiles>
+          <mergeFeaturesById>false</mergeFeaturesById>
+          <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
+          <checkBuildResult>false</checkBuildResult>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Compiler Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- Cucumber dependencies -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>7.14.1</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>7.14.1</version>
+    </dependency>
+
+    <!-- Rest Assured -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>5.3.2</version>
+    </dependency>
+
+    <!-- Maven Cucumber Reporting -->
+    <dependency>
+      <groupId>net.masterthought</groupId>
+      <artifactId>maven-cucumber-reporting</artifactId>
+      <version>${maven.cucumber.reporting.plugin.version}</version>
+    </dependency>
+
+    <!-- Jackson Databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.16.0</version>
+    </dependency>
+  </dependencies>
+</project>
